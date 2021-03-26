@@ -5,7 +5,6 @@ namespace FondOfSpryker\Zed\CompanyBusinessUnitQuoteConnector\Persistence;
 use FondOfSpryker\Zed\CompanyBusinessUnitQuoteConnector\CompanyBusinessUnitQuoteConnectorDependencyProvider;
 use FondOfSpryker\Zed\CompanyBusinessUnitQuoteConnector\Persistence\Propel\Mapper\CompanyUserMapper;
 use FondOfSpryker\Zed\CompanyBusinessUnitQuoteConnector\Persistence\Propel\Mapper\CompanyUserMapperInterface;
-use FondOfSpryker\Zed\CompanyBusinessUnitSales\CompanyBusinessUnitSalesDependencyProvider;
 use Orm\Zed\CompanyUser\Persistence\Base\SpyCompanyUserQuery;
 use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
 
