@@ -23,7 +23,7 @@ class CompanyBusinessUnitQuoteConnectorBusinessFactory extends AbstractBusinessF
     {
         return new QuoteReader(
             $this->createCompanyUserReader(),
-            $this->getCompanyUserReferenceQuoteConnectorFacade()
+            $this->getCompanyUserReferenceQuoteConnectorFacade(),
         );
     }
 
@@ -34,7 +34,7 @@ class CompanyBusinessUnitQuoteConnectorBusinessFactory extends AbstractBusinessF
     {
         return new CompanyUserReader(
             $this->getRepository(),
-            $this->getPermissionFacade()
+            $this->getPermissionFacade(),
         );
     }
 

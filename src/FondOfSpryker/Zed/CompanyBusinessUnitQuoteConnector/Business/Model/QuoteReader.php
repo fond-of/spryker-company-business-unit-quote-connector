@@ -40,15 +40,15 @@ class QuoteReader implements QuoteReaderInterface
     ): CompanyBusinessUnitQuoteListTransfer {
         $companyUserReferenceCollectionTransfer = $this->companyUserReader
             ->getActiveCompanyUserReferencesByCompanyBusinessUnitQuoteListRequest(
-                $companyBusinessUnitQuoteListRequestTransfer
+                $companyBusinessUnitQuoteListRequestTransfer,
             );
 
         $quoteCollectionTransfer = $this->companyUserReferenceQuoteConnectorFacade->findQuotesByCompanyUserReferences(
-            $companyUserReferenceCollectionTransfer
+            $companyUserReferenceCollectionTransfer,
         );
 
         return (new CompanyBusinessUnitQuoteListTransfer())->setQuotes(
-            $quoteCollectionTransfer->getQuotes()
+            $quoteCollectionTransfer->getQuotes(),
         );
     }
 }

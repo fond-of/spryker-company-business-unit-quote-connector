@@ -13,7 +13,7 @@ use Generated\Shared\Transfer\QuoteTransfer;
 class QuoteReaderTest extends Unit
 {
     /**
-     * @var \PHPUnit\Framework\MockObject\MockObject|CompanyUserReaderInterface
+     * @var \PHPUnit\Framework\MockObject\MockObject|\FondOfSpryker\Zed\CompanyBusinessUnitQuoteConnector\Business\Model\CompanyUserReaderInterface
      */
     protected $companyUserReaderMock;
 
@@ -59,28 +59,28 @@ class QuoteReaderTest extends Unit
             ->getMock();
 
         $this->companyUserReferenceQuoteConnectorFacadeMock = $this->getMockBuilder(
-            CompanyBusinessUnitQuoteConnectorToCompanyUserReferenceQuoteConnectorFacadeInterface::class
+            CompanyBusinessUnitQuoteConnectorToCompanyUserReferenceQuoteConnectorFacadeInterface::class,
         )->disableOriginalConstructor()->getMock();
 
         $this->companyBusinessUnitQuoteListRequestTransferMock = $this->getMockBuilder(
-            CompanyBusinessUnitQuoteListRequestTransfer::class
+            CompanyBusinessUnitQuoteListRequestTransfer::class,
         )->disableOriginalConstructor()->getMock();
 
         $this->quoteTransferMock = $this->getMockBuilder(
-            QuoteTransfer::class
+            QuoteTransfer::class,
         )->disableOriginalConstructor()->getMock();
 
         $this->quoteCollectionTransferMock = $this->getMockBuilder(
-            QuoteCollectionTransfer::class
+            QuoteCollectionTransfer::class,
         )->disableOriginalConstructor()->getMock();
 
         $this->companyUserReferenceCollectionTransferMock = $this->getMockBuilder(
-            CompanyUserReferenceCollectionTransfer::class
+            CompanyUserReferenceCollectionTransfer::class,
         )->disableOriginalConstructor()->getMock();
 
         $this->quoteReader = new QuoteReader(
             $this->companyUserReaderMock,
-            $this->companyUserReferenceQuoteConnectorFacadeMock
+            $this->companyUserReferenceQuoteConnectorFacadeMock,
         );
     }
 
@@ -106,12 +106,12 @@ class QuoteReaderTest extends Unit
             ->willReturn($quoteMocks);
 
         $companyBusinessUnitQuoteListTransfer = $this->quoteReader->findByCompanyBusinessUnitQuoteListRequest(
-            $this->companyBusinessUnitQuoteListRequestTransferMock
+            $this->companyBusinessUnitQuoteListRequestTransferMock,
         );
 
         self::assertEquals(
             $quoteMocks,
-            $companyBusinessUnitQuoteListTransfer->getQuotes()
+            $companyBusinessUnitQuoteListTransfer->getQuotes(),
         );
     }
 }

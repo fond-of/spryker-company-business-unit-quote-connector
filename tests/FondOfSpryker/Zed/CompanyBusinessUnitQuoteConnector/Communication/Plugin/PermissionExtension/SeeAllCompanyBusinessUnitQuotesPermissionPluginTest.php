@@ -28,7 +28,7 @@ class SeeAllCompanyBusinessUnitQuotesPermissionPluginTest extends Unit
     {
         self::assertEquals(
             SeeAllCompanyBusinessUnitQuotesPermissionPlugin::KEY,
-            $this->seeAllCompanyBusinessUnitQuotesPermissionPlugin->getKey()
+            $this->seeAllCompanyBusinessUnitQuotesPermissionPlugin->getKey(),
         );
     }
 }

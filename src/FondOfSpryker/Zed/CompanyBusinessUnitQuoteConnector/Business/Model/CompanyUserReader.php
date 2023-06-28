@@ -44,7 +44,7 @@ class CompanyUserReader implements CompanyUserReaderInterface
         $companyUserReferenceCollectionTransfer = new CompanyUserReferenceCollectionTransfer();
 
         $companyUserTransfer = $this->getActiveByCompanyBusinessUnitQuoteListRequest(
-            $companyBusinessUnitQuoteListRequestTransfer
+            $companyBusinessUnitQuoteListRequestTransfer,
         );
 
         if ($companyUserTransfer === null) {
@@ -53,17 +53,17 @@ class CompanyUserReader implements CompanyUserReaderInterface
 
         $canSeeAllCompanyBusinessUnitCarts = $this->permissionFacade->can(
             SeeAllCompanyBusinessUnitQuotesPermissionPlugin::KEY,
-            $companyUserTransfer->getIdCompanyUser()
+            $companyUserTransfer->getIdCompanyUser(),
         );
 
         if (!$canSeeAllCompanyBusinessUnitCarts) {
             return $companyUserReferenceCollectionTransfer->addCompanyUserReference(
-                $companyUserTransfer->getCompanyUserReference()
+                $companyUserTransfer->getCompanyUserReference(),
             );
         }
 
         $companyUserReferences = $this->repository->getActiveCompanyUserReferencesByCompanyBusinessUnitQuoteListRequest(
-            $companyBusinessUnitQuoteListRequestTransfer
+            $companyBusinessUnitQuoteListRequestTransfer,
         );
 
         return $companyUserReferenceCollectionTransfer->setCompanyUserReferences($companyUserReferences);
@@ -85,7 +85,7 @@ class CompanyUserReader implements CompanyUserReaderInterface
         }
 
         return $this->repository->getActiveCompanyUserByCompanyBusinessUnitQuoteListRequest(
-            $companyBusinessUnitQuoteListRequestTransfer
+            $companyBusinessUnitQuoteListRequestTransfer,
         );
     }
 }

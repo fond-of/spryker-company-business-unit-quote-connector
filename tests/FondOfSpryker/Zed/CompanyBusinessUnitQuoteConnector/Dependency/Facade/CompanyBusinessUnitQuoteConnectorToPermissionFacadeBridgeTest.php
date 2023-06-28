@@ -29,7 +29,7 @@ class CompanyBusinessUnitQuoteConnectorToPermissionFacadeBridgeTest extends Unit
             ->getMock();
 
         $this->companyBusinessUnitQuoteConnectorToPermissionFacadeBridge = new CompanyBusinessUnitQuoteConnectorToPermissionFacadeBridge(
-            $this->permissionFacadeMock
+            $this->permissionFacadeMock,
         );
     }
 
@@ -48,7 +48,7 @@ class CompanyBusinessUnitQuoteConnectorToPermissionFacadeBridgeTest extends Unit
 
         self::assertTrue($this->companyBusinessUnitQuoteConnectorToPermissionFacadeBridge->can(
             $permissionKey,
-            $identifier
+            $identifier,
         ));
     }
 }

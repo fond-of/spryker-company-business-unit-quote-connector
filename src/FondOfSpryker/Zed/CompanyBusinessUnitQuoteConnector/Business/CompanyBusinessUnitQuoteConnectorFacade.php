@@ -25,7 +25,7 @@ class CompanyBusinessUnitQuoteConnectorFacade extends AbstractFacade implements 
         CompanyBusinessUnitQuoteListRequestTransfer $companyBusinessUnitQuoteListRequestTransfer
     ): CompanyBusinessUnitQuoteListTransfer {
         return $this->getFactory()->createQuoteReader()->findByCompanyBusinessUnitQuoteListRequest(
-            $companyBusinessUnitQuoteListRequestTransfer
+            $companyBusinessUnitQuoteListRequestTransfer,
         );
     }
 }

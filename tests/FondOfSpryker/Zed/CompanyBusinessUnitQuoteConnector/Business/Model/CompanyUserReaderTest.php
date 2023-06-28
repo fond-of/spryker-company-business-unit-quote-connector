@@ -81,7 +81,7 @@ class CompanyUserReaderTest extends Unit
 
         $this->companyUserReader = new CompanyUserReader(
             $this->repositoryMock,
-            $this->permissionFacadeMock
+            $this->permissionFacadeMock,
         );
     }
 
@@ -124,12 +124,12 @@ class CompanyUserReaderTest extends Unit
 
         $companyUserReferenceCollectionTransfer = $this->companyUserReader
             ->getActiveCompanyUserReferencesByCompanyBusinessUnitQuoteListRequest(
-                $this->companyBusinessUnitQuoteListRequestTransferMock
+                $this->companyBusinessUnitQuoteListRequestTransferMock,
             );
 
         self::assertContains(
             $companyUserReference,
-            $companyUserReferenceCollectionTransfer->getCompanyUserReferences()
+            $companyUserReferenceCollectionTransfer->getCompanyUserReferences(),
         );
     }
 
@@ -172,12 +172,12 @@ class CompanyUserReaderTest extends Unit
 
         $companyUserReferenceCollectionTransfer = $this->companyUserReader
             ->getActiveCompanyUserReferencesByCompanyBusinessUnitQuoteListRequest(
-                $this->companyBusinessUnitQuoteListRequestTransferMock
+                $this->companyBusinessUnitQuoteListRequestTransferMock,
             );
 
         self::assertEquals(
             $companyUserReferences,
-            $companyUserReferenceCollectionTransfer->getCompanyUserReferences()
+            $companyUserReferenceCollectionTransfer->getCompanyUserReferences(),
         );
     }
 
@@ -214,11 +214,11 @@ class CompanyUserReaderTest extends Unit
 
         $companyUserReferenceCollectionTransfer = $this->companyUserReader
             ->getActiveCompanyUserReferencesByCompanyBusinessUnitQuoteListRequest(
-                $this->companyBusinessUnitQuoteListRequestTransferMock
+                $this->companyBusinessUnitQuoteListRequestTransferMock,
             );
 
         self::assertEmpty(
-            $companyUserReferenceCollectionTransfer->getCompanyUserReferences()
+            $companyUserReferenceCollectionTransfer->getCompanyUserReferences(),
         );
     }
 }
