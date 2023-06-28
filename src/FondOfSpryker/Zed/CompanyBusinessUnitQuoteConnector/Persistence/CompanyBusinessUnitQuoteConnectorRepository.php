@@ -8,6 +8,8 @@ use Orm\Zed\CompanyUser\Persistence\Map\SpyCompanyUserTableMap;
 use Spryker\Zed\Kernel\Persistence\AbstractRepository;
 
 /**
+ * @codeCoverageIgnore
+ *
  * @method \FondOfSpryker\Zed\CompanyBusinessUnitQuoteConnector\Persistence\CompanyBusinessUnitQuoteConnectorPersistenceFactory getFactory()
  */
 class CompanyBusinessUnitQuoteConnectorRepository extends AbstractRepository implements CompanyBusinessUnitQuoteConnectorRepositoryInterface
@@ -48,11 +50,15 @@ class CompanyBusinessUnitQuoteConnectorRepository extends AbstractRepository imp
     ): array {
         $companyBusinessUnitQuoteListRequest->requireIdCompanyBusinessUnit();
 
-        return $this->getFactory()->getCompanyUserQuery()
+        /** @var \Propel\Runtime\Collection\ArrayCollection $collection */
+        $collection = $this->getFactory()
+            ->getCompanyUserQuery()
+            ->clear()
             ->filterByFkCompanyBusinessUnit($companyBusinessUnitQuoteListRequest->getIdCompanyBusinessUnit())
             ->filterByIsActive(true)
             ->select([SpyCompanyUserTableMap::COL_COMPANY_USER_REFERENCE])
-            ->find()
-            ->toArray();
+            ->find();
+
+        return $collection->toArray();
     }
 }

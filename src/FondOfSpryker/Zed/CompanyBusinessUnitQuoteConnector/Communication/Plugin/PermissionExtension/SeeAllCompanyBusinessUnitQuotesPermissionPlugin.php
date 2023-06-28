@@ -6,6 +6,9 @@ use Spryker\Shared\PermissionExtension\Dependency\Plugin\PermissionPluginInterfa
 
 class SeeAllCompanyBusinessUnitQuotesPermissionPlugin implements PermissionPluginInterface
 {
+    /**
+     * @var string
+     */
     public const KEY = 'SeeAllCompanyBusinessUnitQuotesPermissionPlugin';
 
     /**

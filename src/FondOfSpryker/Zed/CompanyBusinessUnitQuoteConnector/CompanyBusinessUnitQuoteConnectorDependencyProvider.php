@@ -10,9 +10,19 @@ use Spryker\Zed\Kernel\Container;
 
 class CompanyBusinessUnitQuoteConnectorDependencyProvider extends AbstractBundleDependencyProvider
 {
+    /**
+     * @var string
+     */
     public const FACADE_PERMISSION = 'FACADE_PERMISSION';
+
+    /**
+     * @var string
+     */
     public const FACADE_COMPANY_USER_REFERENCE_QUOTE_CONNECTOR = 'FACADE_COMPANY_USER_REFERENCE_QUOTE_CONNECTOR';
 
+    /**
+     * @var string
+     */
     public const PROPEL_QUERY_COMPANY_USER = 'PROPEL_QUERY_COMPANY_USER';
 
     /**
@@ -39,7 +49,7 @@ class CompanyBusinessUnitQuoteConnectorDependencyProvider extends AbstractBundle
     {
         $container[static::FACADE_PERMISSION] = static function (Container $container) {
             return new CompanyBusinessUnitQuoteConnectorToPermissionFacadeBridge(
-                $container->getLocator()->permission()->facade()
+                $container->getLocator()->permission()->facade(),
             );
         };
 
@@ -55,7 +65,7 @@ class CompanyBusinessUnitQuoteConnectorDependencyProvider extends AbstractBundle
     {
         $container[static::FACADE_COMPANY_USER_REFERENCE_QUOTE_CONNECTOR] = static function (Container $container) {
             return new CompanyBusinessUnitQuoteConnectorToCompanyUserReferenceQuoteConnectorFacadeBridge(
-                $container->getLocator()->companyUserReferenceQuoteConnector()->facade()
+                $container->getLocator()->companyUserReferenceQuoteConnector()->facade(),
             );
         };
 

@@ -31,7 +31,7 @@ class CompanyBusinessUnitQuoteConnectorToCompanyUserReferenceQuoteConnectorFacad
         CompanyUserReferenceCollectionTransfer $companyUserReferenceCollectionTransfer
     ): QuoteCollectionTransfer {
         return $this->companyUserReferenceQuoteConnectorFacade->findQuotesByCompanyUserReferences(
-            $companyUserReferenceCollectionTransfer
+            $companyUserReferenceCollectionTransfer,
         );
     }
 }

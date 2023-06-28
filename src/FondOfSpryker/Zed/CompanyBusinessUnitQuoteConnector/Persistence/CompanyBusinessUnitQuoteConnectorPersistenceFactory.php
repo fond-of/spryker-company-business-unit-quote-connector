@@ -9,6 +9,8 @@ use Orm\Zed\CompanyUser\Persistence\Base\SpyCompanyUserQuery;
 use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
 
 /**
+ * @codeCoverageIgnore
+ *
  * @method \FondOfSpryker\Zed\CompanyBusinessUnitQuoteConnector\Persistence\CompanyBusinessUnitQuoteConnectorRepositoryInterface getRepository()
  */
 class CompanyBusinessUnitQuoteConnectorPersistenceFactory extends AbstractPersistenceFactory
@@ -19,7 +21,7 @@ class CompanyBusinessUnitQuoteConnectorPersistenceFactory extends AbstractPersis
     public function getCompanyUserQuery(): SpyCompanyUserQuery
     {
         return $this->getProvidedDependency(
-            CompanyBusinessUnitQuoteConnectorDependencyProvider::PROPEL_QUERY_COMPANY_USER
+            CompanyBusinessUnitQuoteConnectorDependencyProvider::PROPEL_QUERY_COMPANY_USER,
         );
     }
 

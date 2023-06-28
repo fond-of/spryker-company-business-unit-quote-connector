@@ -7,9 +7,9 @@ use FondOfSpryker\Zed\CompanyBusinessUnitQuoteConnector\Dependency\Facade\Compan
 use FondOfSpryker\Zed\CompanyBusinessUnitQuoteConnector\Dependency\Facade\CompanyBusinessUnitQuoteConnectorToPermissionFacadeBridge;
 use FondOfSpryker\Zed\CompanyUserReferenceQuoteConnector\Business\CompanyUserReferenceQuoteConnectorFacadeInterface;
 use Spryker\Shared\Kernel\BundleProxy;
+use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Kernel\Locator;
 use Spryker\Zed\Permission\Business\PermissionFacadeInterface;
-use Spryker\Zed\Testify\Locator\Business\Container;
 
 class CompanyBusinessUnitQuoteConnectorDependencyProviderTest extends Unit
 {
@@ -92,23 +92,23 @@ class CompanyBusinessUnitQuoteConnectorDependencyProviderTest extends Unit
             ->with('facade')
             ->willReturnOnConsecutiveCalls(
                 $this->permissionFacadeMock,
-                $this->companyUserReferenceQuoteConnectorFacadeMock
+                $this->companyUserReferenceQuoteConnectorFacadeMock,
             );
 
         $container = $this->companyBusinessUnitQuoteConnectorDependencyProvider->provideBusinessLayerDependencies(
-            $this->containerMock
+            $this->containerMock,
         );
 
         self::assertEquals($this->containerMock, $container);
 
         self::assertInstanceOf(
             CompanyBusinessUnitQuoteConnectorToPermissionFacadeBridge::class,
-            $container[CompanyBusinessUnitQuoteConnectorDependencyProvider::FACADE_PERMISSION]
+            $container[CompanyBusinessUnitQuoteConnectorDependencyProvider::FACADE_PERMISSION],
         );
 
         self::assertInstanceOf(
             CompanyBusinessUnitQuoteConnectorToCompanyUserReferenceQuoteConnectorFacadeBridge::class,
-            $container[CompanyBusinessUnitQuoteConnectorDependencyProvider::FACADE_COMPANY_USER_REFERENCE_QUOTE_CONNECTOR]
+            $container[CompanyBusinessUnitQuoteConnectorDependencyProvider::FACADE_COMPANY_USER_REFERENCE_QUOTE_CONNECTOR],
         );
     }
 }

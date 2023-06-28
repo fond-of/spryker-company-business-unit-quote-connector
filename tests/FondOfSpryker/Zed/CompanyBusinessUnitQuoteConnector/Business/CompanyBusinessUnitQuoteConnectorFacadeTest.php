@@ -42,7 +42,7 @@ class CompanyBusinessUnitQuoteConnectorFacadeTest extends Unit
         parent::_before();
 
         $this->companyBusinessUnitQuoteConnectorBusinessFactoryMock = $this->getMockBuilder(
-            CompanyBusinessUnitQuoteConnectorBusinessFactory::class
+            CompanyBusinessUnitQuoteConnectorBusinessFactory::class,
         )->disableOriginalConstructor()->getMock();
 
         $this->quoteReaderMock = $this->getMockBuilder(QuoteReaderInterface::class)
@@ -50,17 +50,17 @@ class CompanyBusinessUnitQuoteConnectorFacadeTest extends Unit
             ->getMock();
 
         $this->companyBusinessUnitQuoteListRequestTransferMock = $this->getMockBuilder(
-            CompanyBusinessUnitQuoteListRequestTransfer::class
+            CompanyBusinessUnitQuoteListRequestTransfer::class,
         )->disableOriginalConstructor()->getMock();
 
         $this->companyBusinessUnitQuoteListTransferMock = $this->getMockBuilder(
-            CompanyBusinessUnitQuoteListTransfer::class
+            CompanyBusinessUnitQuoteListTransfer::class,
         )->disableOriginalConstructor()->getMock();
 
         $this->companyBusinessUnitQuoteConnectorFacade = new CompanyBusinessUnitQuoteConnectorFacade();
 
         $this->companyBusinessUnitQuoteConnectorFacade->setFactory(
-            $this->companyBusinessUnitQuoteConnectorBusinessFactoryMock
+            $this->companyBusinessUnitQuoteConnectorBusinessFactoryMock,
         );
     }
 
@@ -81,8 +81,8 @@ class CompanyBusinessUnitQuoteConnectorFacadeTest extends Unit
         self::assertEquals(
             $this->companyBusinessUnitQuoteListTransferMock,
             $this->companyBusinessUnitQuoteConnectorFacade->findQuotes(
-                $this->companyBusinessUnitQuoteListRequestTransferMock
-            )
+                $this->companyBusinessUnitQuoteListRequestTransferMock,
+            ),
         );
     }
 }

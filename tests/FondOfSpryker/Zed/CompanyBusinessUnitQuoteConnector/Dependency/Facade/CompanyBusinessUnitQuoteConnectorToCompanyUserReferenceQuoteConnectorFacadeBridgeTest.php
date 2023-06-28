@@ -49,7 +49,7 @@ class CompanyBusinessUnitQuoteConnectorToCompanyUserReferenceQuoteConnectorFacad
             ->getMock();
 
         $this->companyBusinessUnitQuoteConnectorToCompanyUserReferenceQuoteConnectorFacadeBridge = new CompanyBusinessUnitQuoteConnectorToCompanyUserReferenceQuoteConnectorFacadeBridge(
-            $this->companyUserReferenceQuoteConnectorFacadeMock
+            $this->companyUserReferenceQuoteConnectorFacadeMock,
         );
     }
 
@@ -68,7 +68,7 @@ class CompanyBusinessUnitQuoteConnectorToCompanyUserReferenceQuoteConnectorFacad
 
         self::assertEquals(
             $this->quoteCollectionTransferMock,
-            $quoteCollectionTransfer
+            $quoteCollectionTransfer,
         );
     }
 }

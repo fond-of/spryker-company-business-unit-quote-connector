@@ -78,15 +78,15 @@ class CompanyBusinessUnitQuoteConnectorBusinessFactoryTest extends Unit
             ->method('get')
             ->withConsecutive(
                 [CompanyBusinessUnitQuoteConnectorDependencyProvider::FACADE_PERMISSION],
-                [CompanyBusinessUnitQuoteConnectorDependencyProvider::FACADE_COMPANY_USER_REFERENCE_QUOTE_CONNECTOR]
+                [CompanyBusinessUnitQuoteConnectorDependencyProvider::FACADE_COMPANY_USER_REFERENCE_QUOTE_CONNECTOR],
             )->willReturnOnConsecutiveCalls(
                 $this->permissionFacadeMock,
-                $this->companyUserReferenceQuoteConnectorFacadeMock
+                $this->companyUserReferenceQuoteConnectorFacadeMock,
             );
 
         self::assertInstanceOf(
             QuoteReader::class,
-            $this->companyBusinessUnitQuoteConnectorBusinessFactory->createQuoteReader()
+            $this->companyBusinessUnitQuoteConnectorBusinessFactory->createQuoteReader(),
         );
     }
 }
